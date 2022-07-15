@@ -1,24 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
 
 function App() {
+
+  const [name,setName] = useState("")
+
+  const naming = (e) =>{
+    setName(`반갑습니다 ${e.target.value}님`);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Home</h1>
+      <p>당신의 이름은 무엇입니까</p>
+      <input type="text" onChange={naming}/>
+      <h3>{name}</h3>
     </div>
   );
 }
